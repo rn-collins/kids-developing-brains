@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI & Your Child's Brain — Workshop by RN Collins LLC</title>
+<title>AI for Developing Brains — NSAG M12 · Workshop by RN Collins LLC</title>
 <meta name="description" content="A neuroscientist and mother of two explains what AI actually does to your child's developing brain. 90-minute workshop, primary-source research, zero panic.">
 
 <!-- Analytics -->
@@ -767,7 +767,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="#">RN Collins LLC</a>
+    <a class="nav-logo" href="https://nsag-site.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;display:flex;flex-direction:column;gap:2px"><span style="font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.6;font-family:var(--font-mono)">NSAG · M12</span><span>AI for Developing Brains</span></a>
     <button class="nav-cta" onclick="openEnrollModal()">Reserve Your Spot</button>
   </div>
 </nav>
@@ -936,7 +936,7 @@
         <p class="pricing-price">$27</p>
         <p class="pricing-unit">one-time · Gumroad</p>
         <p class="pricing-desc">The full 20-page Parent/Educator Guide PDF — primary-source backed, with citations and 5-point protocol. Available immediately.</p>
-        <button class="btn-card" onclick="openEnrollModal()">Get the Guide</button>
+        <a class="btn-card" href="https://rncollins.gumroad.com/l/kids-ai-guide" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;text-align:center">Get the Guide</a>
       </div>
       <div class="pricing-card">
         <span class="pricing-badge pricing-badge-default">Private Booking</span>
@@ -963,14 +963,9 @@
   <div class="section-inner">
     <div class="about-grid">
       <div class="about-portrait">
-        <div class="about-portrait-placeholder">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="30" r="18" stroke="#1B7A68" stroke-width="2"/>
-            <path d="M8 72c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="#1B7A68" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <p>Photo</p>
+        <div class="about-portrait-placeholder" style="width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#1B7A68,#2a9880);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-family:var(--font-display);font-size:3.5rem;font-weight:600;color:white;letter-spacing:-1px">RN</span>
         </div>
-      </div>
       <div>
         <span class="section-label">About the Researcher</span>
         <div class="divider"></div>
@@ -1109,7 +1104,7 @@
     await postLead({ name, email, source: 'enroll-kids' });
     document.getElementById('enroll-form-wrap').style.display = 'none';
     document.getElementById('enroll-success').style.display = 'block';
-    setTimeout(() => { window.location.href = 'https://gumroad.com'; }, 1500);
+    // workshop lead captured — no redirect until workshop page is live
   }
 
   // ── Contact Modal ──
