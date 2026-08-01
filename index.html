@@ -762,7 +762,9 @@
     .pricing-grid { grid-template-columns: 1fr; }
     nav { padding: 0 20px; }
     .modal { padding: 32px 24px; }
-    #contact-fab { bottom: 20px; right: 20px; font-size: 13px; padding: 12px 18px; }
+    #contact-fab { bottom: 16px; right: 16px; padding: 12px; border-radius: 50%; }
+    #contact-fab svg { width: 20px; height: 20px; }
+    #contact-fab .fab-label { display: none; }
   }
 </style>
 <script>(function(){var p=new URLSearchParams(location.search),u={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))u[k]=p.get(k);});if(Object.keys(u).length)sessionStorage.setItem('rn_utm',JSON.stringify(u));window._getUTM=function(){try{return JSON.parse(sessionStorage.getItem('rn_utm')||'{}')}catch(e){return{}}};window.addEventListener('load',function(){fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'page_view',source:'kids-developing-brains',referrer:document.referrer||'direct',utm:window._getUTM()})}).catch(function(){});}); var ms=[25,50,75,90],fired={};window.addEventListener('scroll',function(){var h=document.body.scrollHeight-window.innerHeight;if(h<=0)return;var pct=Math.round((window.scrollY/h)*100);ms.forEach(function(m){if(pct>=m&&!fired[m]){fired[m]=1;fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'scroll_depth',source:'kids-developing-brains',depth:m+'%'})}).catch(function(){});}});},{passive:true});})()</script>
@@ -1263,7 +1265,7 @@ window.rdSubmit_kids = function() {
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   </svg>
-  Contact the Architect
+  <span class="fab-label">Contact the Architect</span>
 </button>
 
 <!-- ENROLL MODAL -->
