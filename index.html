@@ -946,9 +946,9 @@
         <span class="pricing-badge pricing-badge-default">Digital Only</span>
         <p class="pricing-name">PDF Guide Only</p>
         <p class="pricing-price">$27</p>
-        <p class="pricing-unit">one-time · Gumroad</p>
-        <p class="pricing-desc">The full 20-page Parent/Educator Guide PDF — primary-source backed, with citations and 5-point protocol. Available immediately.</p>
-        <a class="btn-card" href="https://rncollins.gumroad.com/l/kids-ai-guide" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;text-align:center">Get the Guide</a>
+        <p class="pricing-unit">one-time</p>
+        <p class="pricing-desc">The full 20-page Parent/Educator Guide PDF — primary-source backed, with citations and 5-point protocol.</p>
+        <button class="btn-card" onclick="openGuideModal()">Join the List to Get the Guide</button>
       </div>
       <div class="pricing-card">
         <span class="pricing-badge pricing-badge-default">Private Booking</span>
@@ -1290,6 +1290,27 @@ window.rdSubmit_kids = function() {
   </div>
 </div>
 
+<!-- GUIDE WAITLIST MODAL -->
+<div class="modal-overlay" id="guide-modal" onclick="if(event.target===this)closeGuideModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeGuideModal()">×</button>
+    <div id="guide-form-wrap">
+      <h3>Join the List to Get the Guide</h3>
+      <p class="modal-sub">The Parent/Educator Guide PDF is being finalized. Leave your email and it'll be sent to you personally as soon as it's ready.</p>
+      <div class="modal-form">
+        <input class="modal-input" type="text" id="guide-name" placeholder="Your name" autocomplete="name">
+        <input class="modal-input" type="email" id="guide-email" placeholder="Your email address" required autocomplete="email">
+        <button class="modal-submit" onclick="submitGuideModal()">Join the List →</button>
+      </div>
+    </div>
+    <div class="modal-success" id="guide-success">
+      <span class="success-icon">✓</span>
+      <h4>You're on the list!</h4>
+      <p>I'll email you the guide personally as soon as it's ready.</p>
+    </div>
+  </div>
+</div>
+
 <!-- CONTACT MODAL -->
 <div class="modal-overlay" id="contact-modal" onclick="if(event.target===this)closeContactModal()">
   <div class="modal">
@@ -1355,6 +1376,27 @@ window.rdSubmit_kids = function() {
     document.getElementById('enroll-form-wrap').style.display = 'none';
     document.getElementById('enroll-success').style.display = 'block';
     // workshop lead captured — no redirect until workshop page is live
+  }
+
+  // ── Guide Waitlist Modal ──
+  function openGuideModal() {
+    document.getElementById('guide-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeGuideModal() {
+    document.getElementById('guide-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('guide-form-wrap').style.display = '';
+    document.getElementById('guide-success').style.display = 'none';
+  }
+  async function submitGuideModal() {
+    const name = document.getElementById('guide-name').value.trim();
+    const email = document.getElementById('guide-email').value.trim();
+    if (!email) { document.getElementById('guide-email').focus(); return; }
+    await postLead({ name, email, source: 'guide-waitlist-kids' });
+    document.getElementById('guide-form-wrap').style.display = 'none';
+    document.getElementById('guide-success').style.display = 'block';
+    // guide lead captured — no checkout link exists yet, PDF sent personally by RN
   }
 
   // ── Contact Modal ──
