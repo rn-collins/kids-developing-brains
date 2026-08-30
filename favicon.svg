@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">AI Use Decision Lab mark</title>
+  <rect width="64" height="64" rx="14" fill="#07565d"/>
+  <circle cx="22" cy="26" r="7" fill="#f6b84a"/>
+  <circle cx="42" cy="26" r="7" fill="#e56f5b"/>
+  <path d="M16 44c5-6 10-9 16-9s11 3 16 9" stroke="#8fd6cf" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>
